@@ -1,9 +1,18 @@
-#### Steps to reproduce this:
+#### Steps to reproduce this: 
+
+> Give execute permissions to scripts
 ```bash
-chmod +x scripts/*.sh \
-  && ./scripts/setup_python.sh \
-  && ./scripts/setup_dataset.sh
+chmod +x scripts/*.sh
 ```
+> setup python2 with a .venv
+```console
+./scripts/setup_python.sh
+```
+> setup datasets (update the paths according to your setup)
+```console
+./scripts/setup_dataset.sh
+```
+---
 
 # two-stream-action-recognition
 We use a spatial and motion stream cnn with ResNet101 for modeling video information in UCF101 dataset.
