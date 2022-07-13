@@ -39,8 +39,8 @@ def main():
     data_loader = dataloader.spatial_dataloader(
                         BATCH_SIZE=arg.batch_size,
                         num_workers=8,
-                        path='/content/jpegs_256/',
-                        ucf_list ='/content/two-stream-action-recognition/UCF_list/',
+                        path='/home/ubuntu/image-and-video-classification-local/two-stream-action-recognition/dataset/jpegs_256/',
+                        ucf_list ='/home/ubuntu/image-and-video-classification-local/two-stream-action-recognition/UCF_list/',
                         ucf_split ='01', 
                         )
     
@@ -114,7 +114,7 @@ class Spatial_CNN():
             # save model
             if is_best:
                 self.best_prec1 = prec1
-                with open('/content/two-stream-action-recognition/record/spatial/spatial_video_preds.pickle','wb') as f:
+                with open('/home/ubuntu/image-and-video-classification-local/two-stream-action-recognition/record/spatial/spatial_video_preds.pickle','wb') as f:
                     pickle.dump(self.dic_video_level_preds,f)
                 f.close()
             
@@ -123,7 +123,7 @@ class Spatial_CNN():
                 'state_dict': self.model.state_dict(),
                 'best_prec1': self.best_prec1,
                 'optimizer' : self.optimizer.state_dict()
-            },is_best,'/content/two-stream-action-recognition/record/spatial/checkpoint.pth.tar','/content/two-stream-action-recognition/record/spatial/model_best.pth.tar')
+            },is_best,'/home/ubuntu/image-and-video-classification-local/two-stream-action-recognition/record/spatial/checkpoint.pth.tar','/home/ubuntu/image-and-video-classification-local/two-stream-action-recognition/record/spatial/model_best.pth.tar')
 
     def train_1epoch(self):
         print('==> Epoch:[{0}/{1}][training stage]'.format(self.epoch, self.nb_epochs))
@@ -183,7 +183,7 @@ class Spatial_CNN():
                 'Prec@5':[round(top5.avg,4)],
                 'lr': self.optimizer.param_groups[0]['lr']
                 }
-        record_info(info, '/content/two-stream-action-recognition/record/rgb_train.csv','train')
+        record_info(info, '/home/ubuntu/image-and-video-classification-local/two-stream-action-recognition/record/rgb_train.csv','train')
 
     def validate_1epoch(self):
         print('==> Epoch:[{0}/{1}][validation stage]'.format(self.epoch, self.nb_epochs))
@@ -225,7 +225,7 @@ class Spatial_CNN():
                 'Loss':[round(video_loss,5)],
                 'Prec@1':[round(video_top1,3)],
                 'Prec@5':[round(video_top5,3)]}
-        record_info(info, '/content/two-stream-action-recognition/record/spatial/rgb_test.csv','test')
+        record_info(info, '/home/ubuntu/image-and-video-classification-local/two-stream-action-recognition/record/spatial/rgb_test.csv','test')
         return video_top1, video_loss
 
     def frame2_video_level_accuracy(self):
