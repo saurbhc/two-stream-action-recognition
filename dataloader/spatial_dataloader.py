@@ -19,14 +19,26 @@ class spatial_dataset(Dataset):
         return len(self.keys)
 
     def load_ucf_image(self,video_name, index):
+        if index // 1000 != 0:
+            index_temp = '00' + str(index)
+        elif index // 100 != 0:
+            index_temp = '000' + str(index)
+        elif index // 10 != 0:
+            index_temp = '0000' + str(index)
+        else:
+            index_temp = '00000' + str(index)
+
         if video_name.split('_')[0] == 'HandstandPushups':
             n,g = video_name.split('_',1)
             name = 'HandStandPushups_'+g
-            path = self.root_dir + 'HandstandPushups'+'/separated_images/v_'+name+'/v_'+name+'_'
+            # path = self.root_dir + 'HandstandPushups'+'/separated_images/v_'+name+'/v_'+name+'_'
+            path = self.root_dir + 'v_' + video_name + '/' + 'frame'
         else:
-            path = self.root_dir + video_name.split('_')[0]+'/separated_images/v_'+video_name+'/v_'+video_name+'_'
+            # path = self.root_dir + video_name.split('_')[0]+'/separated_images/v_'+video_name+'/v_'+video_name+'_'
+            path = self.root_dir + 'v_' + video_name + '/' + 'frame'
          
-        img = Image.open(path +str(index)+'.jpg')
+        # img = Image.open(path +str(index)+'.jpg')
+        img = Image.open(path + index_temp +'.jpg')
         transformed_img = self.transform(img)
         img.close()
 
@@ -80,7 +92,7 @@ class spatial_dataloader():
 
     def load_frame_count(self):
         #print '==> Loading frame number of each video'
-        with open('dic/frame_count.pickle','rb') as file:
+        with open('/content/two-stream-action-recognition/dataloader/dic/frame_count.pickle','rb') as file:
             dic_frame = pickle.load(file)
         file.close()
 
