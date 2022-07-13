@@ -1,3 +1,10 @@
+#### Steps to reproduce this:
+```bash
+chmod +x scripts/*.sh \
+  && ./scripts/setup_python.sh \
+  && ./scripts/setup_dataset.sh
+```
+
 # two-stream-action-recognition
 We use a spatial and motion stream cnn with ResNet101 for modeling video information in UCF101 dataset.
 ## Reference Paper
