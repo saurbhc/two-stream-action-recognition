@@ -34,8 +34,8 @@ cd /home/ubuntu/image-and-video-classification-local/two-stream-action-recogniti
     && mkdir -p /home/ubuntu/image-and-video-classification-local/two-stream-action-recognition/models_pre_trained \
     && mkdir -p /home/ubuntu/image-and-video-classification-local/two-stream-action-recognition/models_pre_trained/spatial_resnet101_80 \
     && mkdir -p /home/ubuntu/image-and-video-classification-local/two-stream-action-recognition/models_pre_trained/motion_resnet101_80 \
-    && curl -L https://drive.google.com/file/d/1HWE4eMhJC4rbkkghxFQLMjy7wxaWUo7R/view?usp=sharing > /home/ubuntu/image-and-video-classification-local/two-stream-action-recognition/models_pre_trained/spatial_resnet101_80/model_best.pth.tar
-    && curl -L https://drive.google.com/file/d/1HWE4eMhJC4rbkkghxFQLMjy7wxaWUo7R/view?usp=sharing >  /home/ubuntu/image-and-video-classification-local/two-stream-action-recognition/models_pre_trained/motion_resnet101_80/model_best.pth.tar
+    && curl -L https://drive.google.com/file/d/1HWE4eMhJC4rbkkghxFQLMjy7wxaWUo7R/view?usp=sharing > /home/ubuntu/image-and-video-classification-local/two-stream-action-recognition/models_pre_trained/spatial_resnet101_80/model_best.pth.tar \
+    && curl -L https://drive.google.com/file/d/1HWE4eMhJC4rbkkghxFQLMjy7wxaWUo7R/view?usp=sharing > /home/ubuntu/image-and-video-classification-local/two-stream-action-recognition/models_pre_trained/motion_resnet101_80/model_best.pth.tar
 
 /home/ubuntu/image-and-video-classification-local/two-stream-action-recognition/.venv_py2.7/bin/python -m pip install \
     pillow \
