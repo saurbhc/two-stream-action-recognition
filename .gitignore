@@ -1,2 +1,5 @@
 .venv_py2.7
 get-pip.py
+dataset/
+models_pre_trained/
+**/*.pyc
