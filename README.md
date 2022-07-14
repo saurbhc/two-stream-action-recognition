@@ -12,6 +12,14 @@ chmod +x scripts/*.sh
 ```console
 ./scripts/setup_dataset.sh
 ```
+> evaluate resume spatial resnet101
+```console
+./scripts/run_spatial_evaluate.sh
+```
+> evaluate resume motion resnet101
+```console
+./scripts/run_motion_evaluate.sh
+```
 ---
 
 # two-stream-action-recognition
