@@ -43,3 +43,11 @@ cd /home/ubuntu/image-and-video-classification-local/two-stream-action-recogniti
     torchvision \
     future \
     scikit-image pandas
+
+# download pre-trained models
+/home/ubuntu/image-and-video-classification-local/two-stream-action-recognition/.venv_py2.7/bin/python -m pip install \
+    gdown \
+    && cd /home/ubuntu/image-and-video-classification-local/two-stream-action-recognition/models_pre_trained/spatial_resnet101_80/ \
+    && gdown 1GwaTNcVJDFDiIl3Y9hF_HhX1FzxX7jwE \
+    && cd /home/ubuntu/image-and-video-classification-local/two-stream-action-recognition/models_pre_trained/motion_resnet101_80/ \
+    && gdown 1HWE4eMhJC4rbkkghxFQLMjy7wxaWUo7R
