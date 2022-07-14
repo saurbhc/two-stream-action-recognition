@@ -130,7 +130,7 @@ class spatial_dataloader():
             for i in range(19):
                 frame = i*interval
                 key = video+ ' '+str(frame+1)
-                self.dic_testing[key] = self.test_video[video]      
+                self.dic_testing[key] = self.test_video[video]
 
     def train(self):
         training_set = spatial_dataset(dic=self.dic_training, root_dir=self.data_path, mode='train', transform = transforms.Compose([
