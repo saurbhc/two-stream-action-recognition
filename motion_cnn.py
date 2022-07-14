@@ -161,9 +161,11 @@ class Motion_CNN():
 
             # measure accuracy and record loss
             prec1, prec5 = accuracy(output.data, label, topk=(1, 5))
-            losses.update(loss.data[0], data.size(0))
-            top1.update(prec1[0], data.size(0))
-            top5.update(prec5[0], data.size(0))
+            data_size = data.size(0) 
+            loss_data = loss.data
+            losses.update(loss_data, data_size)
+            top1.update(prec1, data_size)
+            top5.update(prec5, data_size)
 
             # compute gradient and do SGD step
             self.optimizer.zero_grad()
